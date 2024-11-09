@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/orders.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+            
+           
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li class = "active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="form.html">Custom Order</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </nav>
+    <h1 class = "center-text">Orders</h1>
+    <!-- Orders Table Section -->
+    <section class="orders-section">
+        
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Price</th>
+                    <th>Received Deposit?</th>
+                    <th>Order Date</th>
+                    <th>Pickup Date</th>
+                    <th>Preferred Custom.</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample Data Rows -->
+                <tr>
+                    <td>1001</td>
+                    <td>John Doe</td>
+                    <td>$150.00</td>
+                    <td>Yes</td>
+                    <td>2024-10-20</td>
+                    <td>2024-11-01</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>1002</td>
+                    <td>Jane Smith</td>
+                    <td>$200.00</td>
+                    <td>No</td>
+                    <td>2024-10-25</td>
+                    <td>2024-11-05</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>1003</td>
+                    <td>Emily Brown</td>
+                    <td>$175.00</td>
+                    <td>Yes</td>
+                    <td>2024-10-22</td>
+                    <td>2024-11-07</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>1004</td>
+                    <td>Michael Johnson</td>
+                    <td>$220.00</td>
+                    <td>No</td>
+                    <td>2024-10-28</td>
+                    <td>2024-11-08</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>1005</td>
+                    <td>Sarah Lee</td>
+                    <td>$130.00</td>
+                    <td>Yes</td>
+                    <td>2024-10-30</td>
+                    <td>2024-11-10</td>
+                    <td>No</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

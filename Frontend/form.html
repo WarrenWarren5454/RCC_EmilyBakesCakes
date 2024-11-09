@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Custom Cake - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+           
+            
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li class = "active"><a href="#">Custom Order</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </nav>
+
+    <!-- Custom Cake Ordering Form -->
+    <section class="order-form">
+        <h1>Custom Cake Order</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <!-- Employee ID -->
+            <div class="form-group">
+                <h2>Employee Information</h2>
+                <div class="form-row">
+                    <label for="employee_id">Employee ID</label>
+                    <input type="text" id="employee_id" name="employee_id" required>
+                </div>
+            </div>
+
+            <!-- Customer Information -->
+            <div class="form-group">
+                <h2>Customer Information</h2>
+                <div class="form-row">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+                <div class="form-row">
+                    <label for="phone_number">Phone Number</label>
+                    <input type="text" id="phone_number" name="phone_number" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+
+            <!-- Address Information -->
+            <div class="form-group">
+                <h2>Customer Location</h2>
+                <div class="form-row">
+                    <label for="street_address">Street Address</label>
+                    <input type="text" id="street_address" name="street_address" class="short-input" required>
+                </div>
+                <div class="form-row">
+                    <label for="state">State</label>
+                    <select id="state" name="state" required>
+                        <option value="texas">Texas</option>
+                    </select>
+                    <label for="city">City</label>
+                    <select id="city" name="city" required>
+                        <option value="houston">Houston</option>
+                    </select>
+                    <label for="zip_code">ZIP Code</label>
+                    <input type="text" id="zip_code" name="zip_code" class="zip-code" required>
+                </div>
+            </div>
+
+            <!-- Delivery Date and Time -->
+            <div class="form-group">
+                <h2>Pickup Details</h2>
+                <div class="form-row">
+                    <label for="delivery_date">Pickup Date</label>
+                    <input type="date" id="delivery_date" name="delivery_date" required>
+                    <label for="delivery_time">Pickup Time</label>
+                    <input type="time" id="delivery_time" name="delivery_time" required>
+                </div>
+            </div>
+
+            <!-- Cake Layers Section -->
+            <div class="form-group">
+                <h2>Cake Layers</h2>
+                <div class="form-row">
+                    <label for="num_layers">Number of Layers</label>
+                    <select id="num_layers" name="num_layers" onchange="generateLayerOptions()" required>
+                        <option value="">Select Layers</option>
+                        <option value="1">1 Layer</option>
+                        <option value="2">2 Layers</option>
+                        <option value="3">3 Layers</option>
+                        <option value="4">4 Layers</option>
+                        <option value="5">5 Layers</option>
+                        <option value="6">6 Layers</option>
+                        <option value="7">7 Layers</option>
+                        <option value="8">8 Layers</option>
+                        <option value="9">9 Layers</option>
+                        <option value="10">10 Layers</option>
+                    </select>
+                </div>
+                <div id="layer_options" class="layer-options"></div>
+            </div>
+
+            <!-- Custom Message Section -->
+            <div class="form-group">
+                <h2>Custom Writing</h2>
+                <label for="custom_message_check">
+                    <input type="checkbox" id="custom_message_check" onclick="toggleCustomMessage()">
+                    Custom Writing
+                </label>
+                <div id="custom_message_input" style="display: none;">
+                    <label for="custom_message">Writing (30 characters max)</label>
+                    <input type="text" id="custom_message" name="custom_message" maxlength="30">
+                </div>
+            </div>
+
+            <!-- Image Upload Section -->
+            <div class="form-group">
+                <h2>Upload Example Image (Optional)</h2>
+                <label for="example_image">Attach an Image of the Desired Cake</label>
+                <input type="file" id="example_image" name="example_image" accept="image/*">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <script src="js/form.js"></script>
+</body>
+</html>

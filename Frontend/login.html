@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Login - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+            <div class="center-text">
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Form Section -->
+    <section class="login-form">
+        <h1>Employee Login</h1>
+        <form action="#" method="post">
+            <!-- Employee ID -->
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="employee_id">Employee ID</label>
+                    <input type="text" id="employee_id" name="employee_id" required>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" onclick="window.location.href='form.html'">Login</button>
+        </form>
+    </section>
+</body>
+</html>

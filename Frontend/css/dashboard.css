@@ -1,0 +1,86 @@
+/* Admin Dashboard Styling */
+.admin-header {
+    background-color: #ffffff;
+    color: #fff;
+    padding: 20px;
+}
+
+.admin-header .center-text h1 {
+    color: #000000;
+}
+
+.admin-navbar {
+    background-color: #999999;
+    padding: 10px 0;
+}
+
+.admin-navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.admin-navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: x-large;
+}
+
+.admin-navbar a:hover {
+    color: #ff6f61;
+}
+
+/* Dashboard Grid Styling */
+
+.logout-icon {
+    width: 20px;
+    height: auto;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    max-width: 500px;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+/* Individual Pane Styling */
+.dashboard-pane {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-pane:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-pane h2 {
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.dashboard-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Active Navbar Item */
+.admin-navbar .active a {
+    background-color: #353535; /* Black background for active item */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

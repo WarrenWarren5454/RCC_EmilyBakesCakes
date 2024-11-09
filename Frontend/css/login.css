@@ -1,0 +1,78 @@
+/* Admin Dashboard Styling */
+.admin-header {
+    background-color: #ffffff;
+    color: #fff;
+    padding: 0px;
+}
+
+.admin-header .center-text h1 {
+    color: #000000;
+    text-align: center;
+}
+
+.icon {
+    width: 170px;
+    height: auto;
+}
+
+/* Login Form Styling */
+.login-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-form h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-row label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-row input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button[type="submit"] {
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e05a50;
+}
+
+/* Active Navbar Item */
+.admin-navbar .active a {
+    background-color: #000; /* Black background for active item */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
