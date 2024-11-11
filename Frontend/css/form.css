@@ -18,7 +18,7 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 70px;
     margin: 0 auto;
     padding: 0;
 }
@@ -28,7 +28,7 @@
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: x-large;
+    font-size: large;
 }
 
 .admin-navbar a:hover {
@@ -80,7 +80,7 @@
 }
 
 
-button[type="submit"] {
+button[type="button"] {
     background-color: #ff6f61;
     color: #fff;
     padding: 10px;
@@ -91,7 +91,7 @@ button[type="submit"] {
     width: 100%;
 }
 
-button[type="submit"]:hover {
+button[type="button"]:hover {
     background-color: #e05a50;
 }
 
@@ -146,4 +146,8 @@ button[type="submit"]:hover {
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+#center-paragraph {
+    text-align: center;
 }

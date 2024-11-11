@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/edit_product.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li class = "active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="orders.html">Custom Order</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="center-text">Edit Product</h1>
+
+    <section class="form-section">
+        <form action="inventory.html" method="post" class="centered-form">
+            <div class="form-group">
+                <label for="product_id">Product ID</label>
+                <input type="text" id="product_id" name="product_id" readonly placeholder="1">
+            </div>
+    
+            <div class="form-group">
+                <label for="product_name">Product Name</label>
+                <input type="text" id="product_name" name="product_name" value = "Vanilla Cake" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="Available">Available</option>
+                    <option value="Not Available">Not Available</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" step="0.01" value = "15.00" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="Cakes">Cakes</option>
+                    <option value="Pastries">Pastries</option>
+                    <option value="Cup Cakes">Cup Cakes</option>
+                    <option value="Cookies">Cookies</option>
+                    <option value="Petit Fours">Petit Fours</option>
+                    <option value="Pies">Pies</option>
+                    <option value="Breads">Breads</option>
+                    <option value="Seasonal Products">Seasonal Products</option>
+                    <option value="Decorations">Decorations</option>
+                    <option value="Flavors">Flavors</option>
+                    <option value="Fillings">Fillings</option>
+                    <option value="Icing">Icing</option>
+                </select>
+            </div>
+    
+            <div style="text-align: center; margin-top: 20px;">
+                <button type="submit" onclick = "window.location.href='inventory.html'">Save Changes</button>
+            </div>
+    
+            <div class="back-button" style="text-align: center; margin-top: 20px;">
+                <button type="button" onclick="window.location.href='inventory.html'">Back to Product List</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

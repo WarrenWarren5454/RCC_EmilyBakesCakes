@@ -24,6 +24,7 @@
             <li><a href="dashboard.html">Dashboard</a></li>
             <li class = "active"><a href="#">Custom Order</a></li>
             <li><a href="#">Settings</a></li>
+            <li><a href ="index.html">Logout</a></li>
         </ul>
     </nav>
 
@@ -36,7 +37,7 @@
                 <h2>Employee Information</h2>
                 <div class="form-row">
                     <label for="employee_id">Employee ID</label>
-                    <input type="text" id="employee_id" name="employee_id" required>
+                    <input type="text" id="employee_id" name="employee_id" required readonly value = "101">
                 </div>
             </div>
 
@@ -50,8 +51,8 @@
                     <input type="text" id="last_name" name="last_name" required>
                 </div>
                 <div class="form-row">
-                    <label for="phone_number">Phone Number</label>
-                    <input type="text" id="phone_number" name="phone_number" required>
+                    <label for="phone_number">Phone Number </label>
+                    <input type="text" id="phone_number" placeholder ="xxx-xxx-xxxx" required>
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
@@ -84,8 +85,6 @@
                 <div class="form-row">
                     <label for="delivery_date">Pickup Date</label>
                     <input type="date" id="delivery_date" name="delivery_date" required>
-                    <label for="delivery_time">Pickup Time</label>
-                    <input type="time" id="delivery_time" name="delivery_time" required>
                 </div>
             </div>
 
@@ -122,6 +121,10 @@
                     <label for="custom_message">Writing (30 characters max)</label>
                     <input type="text" id="custom_message" name="custom_message" maxlength="30">
                 </div>
+                <h2>Initial Deposit</h2>
+                <label for="initialDeposit">
+                    <input type="number" id="initialDeposit" name="initialDeposit">
+                </label>
             </div>
 
             <!-- Image Upload Section -->
@@ -131,8 +134,10 @@
                 <input type="file" id="example_image" name="example_image" accept="image/*">
             </div>
 
-            <!-- Submit Button -->
-            <button type="submit">Place Order</button>
+            <!-- Submit Button with Onclick Event -->
+            <button type="button" id="placeOrderButton" onclick="simulateTransaction()">Place Order</button>
+            <div id="loadingMessage" style="display: none;">Processing transaction, please wait...</div>
+
         </form>
     </section>
 

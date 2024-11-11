@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/customers.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            background-color: #f44336;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+        .back-button:hover {
+            background-color: #d73833;
+        }
+    </style>
+    <script>
+        function prefillCustomerDetails() {
+            document.getElementById("customerId").value = "2002";
+            document.getElementById("firstName").value = "John";
+            document.getElementById("lastName").value = "Pork";
+            document.getElementById("email").value = "john.pork@example.com";
+            document.getElementById("phone").value = "(555) 234-5678";
+            document.getElementById("address").value = "456 Pig Ave";
+            document.getElementById("customerType").value = "Corporate";
+            document.getElementById("preferredCustomer").value = "No";
+            document.getElementById("city").value = "Houston";
+            document.getElementById("state").value = "TX";
+            document.getElementById("zipCode").value = "77204";
+        }
+
+        function goBack() {
+            window.location.href = "customers.html";
+        }
+    </script>
+</head>
+<body onload="prefillCustomerDetails()">
+    
+    <div class="form-container">
+        <br><br><br><br><br><br><br><br><br>
+        <h1>Customer Details</h1>
+        <form>
+            <label>Customer ID:</label>
+            <input type="text" id="customerId" readonly>
+
+            <label>First Name:</label>
+            <input type="text" id="firstName">
+
+            <label>Last Name:</label>
+            <input type="text" id="lastName">
+
+            <label>Email:</label>
+            <input type="email" id="email">
+
+            <label>Phone Number:</label>
+            <input type="text" id="phone">
+
+            <label>Address:</label>
+            <input type="text" id="address">
+
+            <label>Customer Type:</label>
+            <input type="text" id="customerType">
+
+            <label>Preferred Customer:</label>
+            <input type="text" id="preferredCustomer">
+
+            <label>City:</label>
+            <input type="text" id="city">
+
+            <label>State:</label>
+            <input type="text" id="state">
+
+            <label>ZIP Code:</label>
+            <input type="text" id="zipCode">
+            <button type="button" style = "background-color: rgb(43, 93, 255);" onclick="goBack()">Submit</button>
+            <button type="button" onclick="goBack()">Back</button>
+        </form>
+    </div>
+</body>
+</html>

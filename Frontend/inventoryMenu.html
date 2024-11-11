@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="form.html">Custom Order</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard Grid -->
+    <section class="dashboard-grid">
+        
+
+        <!-- Customers Pane -->
+        <div class="dashboard-pane">
+            <h2>Product Database</h2>
+            <a href="inventory.html">
+                <img src="images/database.svg" alt="Customers" class="dashboard-image">
+            </a>
+        </div>
+
+        <!-- Orders Pane -->
+        <div class="dashboard-pane">
+            <h2>Add Product</h2>
+            <a href="addInventory.html">
+                <img src="images/addition.svg" alt="Orders" class="dashboard-image">
+            </a>
+        </div>
+
+        
+    </section>
+    <div class = "back-button" style="text-align: center; margin-top: 20px;">
+        <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+    </div>
+    <br><br>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Complete</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li class="active"><a href="#">Custom Order</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Order Complete Section -->
+    <section class="order-complete">
+        <h1>Order Complete</h1>
+        <p id = "center-paragraph">Your order has been successfully placed!</p>
+        <div id="orderSummary"></div>
+    </section>
+
+    <script>
+        // Retrieve the order data from localStorage
+        const orderData = JSON.parse(localStorage.getItem('orderData'));
+
+        // Display the order data in the order summary section
+        const orderSummary = document.getElementById('orderSummary');
+        if (orderData) {
+            orderSummary.innerHTML = `
+                <h2>Order ID: ${orderData.orderId}</h2>
+                <h3>Customer Information</h3>
+                <p><strong>Name:</strong> ${orderData.firstName} ${orderData.lastName}</p>
+                <p><strong>Phone:</strong> ${orderData.phoneNumber}</p>
+                <p><strong>Email:</strong> ${orderData.email}</p>
+                <p><strong>Address:</strong> ${orderData.address}, ${orderData.city}, ${orderData.state}, ${orderData.zipCode}</p>
+                <h3>Order Details</h3>
+                <p><strong>Pickup Date:</strong> ${orderData.deliveryDate}</p>
+                <p><strong>Layers:</strong> ${orderData.numLayers}</p>
+                ${orderData.customMessage ? `<p><strong>Custom Message:</strong> ${orderData.customMessage}</p>` : ""}
+                <p><strong>Initial Deposit:</strong> $${orderData.initialDeposit}</p>
+                <br><br><br><br>
+            `;
+        } else {
+            orderSummary.innerHTML = '<p>No order details found.</p>';
+        }
+
+        // Clear the localStorage after displaying
+        localStorage.removeItem('orderData');
+    </script>
+</body>
+</html>

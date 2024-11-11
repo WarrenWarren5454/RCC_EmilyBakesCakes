@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Order</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/form.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            background-color: #f44336;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+        .back-button:hover {
+            background-color: #d73833;
+        }
+        .layer-options {
+            margin-top: 10px;
+        }
+        .layer-group {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .layer-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        .layer-item {
+            flex: 1;
+            min-width: 200px;
+        }
+    </style>
+    <script>
+        function prefillForm() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById("orderId").value = urlParams.get("orderId");
+            document.getElementById("customerId").value = 2001;
+            document.getElementById("price").value = urlParams.get("price") + ".00";
+            document.getElementById("deposit").value = urlParams.get("deposit") + ".00";
+            document.getElementById("orderDate").value = urlParams.get("orderDate");
+            document.getElementById("pickupDate").value = urlParams.get("pickupDate");
+            document.getElementById("preferredCustom").value = urlParams.get("preferredCustom");
+            document.getElementById("orderStatus").value = urlParams.get("orderStatus");
+
+            // Preselect 2 layers and generate options
+            document.getElementById("numLayers").value = 2;
+            generateLayerOptions();
+        }
+
+        function goBack() {
+            window.location.href = "orders.html";
+        }
+
+        function toggleCustomMessage() {
+            const messageCheckbox = document.getElementById("custom_message_check");
+            const messageInput = document.getElementById("custom_message_input");
+            messageInput.style.display = messageCheckbox.checked ? "block" : "none";
+        }
+
+        function generateLayerOptions() {
+            const numLayers = document.getElementById("numLayers").value;
+            const layerOptions = document.getElementById("layer_options");
+            layerOptions.innerHTML = ""; // Clear previous layer options
+
+            for (let i = 1; i <= numLayers; i++) {
+                const layerDiv = document.createElement("div");
+                layerDiv.className = "layer-group";
+                layerDiv.innerHTML = `
+                    <h3>Layer ${i}</h3>
+                    <div class="layer-row">
+                        <div class="layer-item">
+                            <label for="flavor_${i}">Flavor</label>
+                            <select id="flavor_${i}" name="flavor_${i}" required>
+                                <option value="">Select Flavor</option>
+                                <option value="vanilla">Vanilla</option>
+                                <option value="almond">Almond</option>
+                                <option value="chocolate">Chocolate</option>
+                                <option value="strawberry">Strawberry</option>
+                            </select>
+                        </div>
+                        <div class="layer-item">
+                            <label for="icing_${i}">Icing</label>
+                            <select id="icing_${i}" name="icing_${i}" required>
+                                <option value="">Select Icing</option>
+                                <option value="white_buttercream">White Buttercream</option>
+                                <option value="almond_buttercream">Almond Buttercream</option>
+                                <option value="chocolate_ganache">Chocolate Ganache</option>
+                            </select>
+                        </div>
+                        <div class="layer-item">
+                            <label for="decoration_${i}">Decoration</label>
+                            <select id="decoration_${i}" name="decoration_${i}">
+                                <option value="">Select Decoration</option>
+                                <option value="buttercream_flowers">Buttercream Flowers</option>
+                                <option value="fondant_decorations">Fondant Decorations</option>
+                            </select>
+                        </div>
+                    </div>
+                `;
+                layerOptions.appendChild(layerDiv);
+            }
+
+            // Set default selections for the 2 layers
+            document.getElementById("flavor_1").value = "vanilla";
+            document.getElementById("icing_1").value = "white_buttercream";
+            document.getElementById("decoration_1").value = "buttercream_flowers";
+
+            document.getElementById("flavor_2").value = "chocolate";
+            document.getElementById("icing_2").value = "chocolate_ganache";
+            document.getElementById("decoration_2").value = "fondant_decorations";
+        }
+    </script>
+</head>
+
+<body onload="prefillForm()">
+    <div class="form-container">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <h1>Edit Order</h1>
+        <form>
+            <label>Order ID:</label> 
+            <input type="text" id="orderId" readonly>
+
+            <label>Customer ID:</label>
+            <input type="text" id="customerId" readonly>
+
+            <label>Price:</label>
+            <input type="number" id="price">
+            <label>Deposit:</label>
+            <input type="number" id="deposit">
+            <label>Order Date:</label>
+            <input type="text" id="orderDate">
+            <label>Pickup Date:</label>
+            <input type="text" id="pickupDate">
+            <label>Preferred Custom:</label>
+            <input type="text" id="preferredCustom">
+
+            <label>Order Status:</label>
+            <select id="orderStatus">
+                <option value="In Progress">In Progress</option>
+                <option value="Cancelled">Cancelled</option>
+                <option value="Complete">Complete</option>
+                <option value="Pending Pickup">Pending Pickup</option>
+            </select>
+
+            <h2>Cake Layers</h2>
+            <label for="numLayers">Number of Layers:</label>
+            <select id="numLayers" name="numLayers" onchange="generateLayerOptions()" required>
+                <option value="">Select Layers</option>
+                <option value="1">1 Layer</option>
+                <option value="2">2 Layers</option>
+                <option value="3">3 Layers</option>
+                <option value="4">4 Layers</option>
+                <option value="5">5 Layers</option>
+                <option value="6">6 Layers</option>
+                <option value="7">7 Layers</option>
+                <option value="8">8 Layers</option>
+                <option value="9">9 Layers</option>
+                <option value="10">10 Layers</option>
+            </select>
+            <div id="layer_options" class="layer-options"></div>
+
+            <h2>Custom Writing</h2>
+            <label for="custom_message_check">
+                <input type="checkbox" id="custom_message_check" onclick="toggleCustomMessage()">
+                Custom Writing
+            </label>
+            <div id="custom_message_input" style="display: none;">
+                <label for="customMessage">Writing (30 characters max)</label>
+                <input type="text" id="customMessage" name="customMessage" maxlength="30">
+            </div>
+
+            <label>Attached Image:</label>
+            <input type="file" id="example_image" name="example_image" accept="image/*">
+
+            <button type="button" onclick="goBack()">Save Changes</button>
+            <button type="button" class="back-button" onclick="goBack()">Back</button>
+        </form>
+    </div>
+</body>
+</html>

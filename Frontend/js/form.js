@@ -47,3 +47,43 @@ function generateLayerOptions() {
         layerOptions.appendChild(layerDiv);
     }
 }
+
+function simulateTransaction() {
+    const placeOrderButton = document.getElementById('placeOrderButton');
+    const loadingMessage = document.getElementById('loadingMessage');
+    
+    // Disable the button and show the loading message
+    placeOrderButton.disabled = true;
+    loadingMessage.style.display = 'block';
+
+    // Gather form data
+    const orderData = {
+        orderId: "1001", // Generate a random order number
+        employeeId: document.getElementById('employee_id').value,
+        firstName: document.getElementById('first_name').value,
+        lastName: document.getElementById('last_name').value,
+        phoneNumber: document.getElementById('phone_number').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('street_address').value,
+        state: document.getElementById('state').value,
+        city: document.getElementById('city').value,
+        zipCode: document.getElementById('zip_code').value,
+        deliveryDate: document.getElementById('delivery_date').value,
+        numLayers: document.getElementById('num_layers').value,
+        customMessage: document.getElementById('custom_message').value,
+        initialDeposit: document.getElementById('initialDeposit').value
+    };
+
+    // Save the data to localStorage
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+
+    // Simulate a delay (e.g., 3 seconds for the POS transaction to "complete")
+    setTimeout(() => {
+        loadingMessage.style.display = 'none';
+        placeOrderButton.disabled = false;
+
+        // Redirect to the "Order Complete" page
+        window.location.href = 'order_complete.html';
+    }, 3000); // 3000ms = 3 seconds
+}
+

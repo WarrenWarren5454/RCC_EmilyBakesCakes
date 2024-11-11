@@ -1,0 +1,183 @@
+/* Admin Dashboard Styling */
+.admin-header {
+    background-color: #ffffff;
+    color: #fff;
+    padding: 20px;
+}
+
+.admin-header .center-text h1 {
+    color: #000000;
+}
+
+.admin-navbar {
+    background-color: #999999;
+    padding: 8px 0; /* Reduced height */
+}
+
+.admin-navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.admin-navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: large;
+}
+
+.admin-navbar a:hover {
+    color: #ff6f61;
+}
+
+/* Customers Table Section */
+.customers-table {
+    width: 100%; /* Full width of container */
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fixed layout for consistent column width */
+}
+
+.customers-table th, .customers-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1em;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Specific Column Widths */
+.customers-table th:nth-child(1),
+.customers-table td:nth-child(1) {
+    width: 8%; /* Customer ID */
+}
+
+.customers-table th:nth-child(2),
+.customers-table td:nth-child(2) {
+    width: 10%; /* First Name */
+}
+
+.customers-table th:nth-child(3),
+.customers-table td:nth-child(3) {
+    width: 10%; /* Last Name */
+}
+
+.customers-table th:nth-child(4),
+.customers-table td:nth-child(4) {
+    width: 18%; /* Email */
+}
+
+.customers-table th:nth-child(5),
+.customers-table td:nth-child(5) {
+    width: 12%; /* Phone Number */
+}
+
+.customers-table th:nth-child(6),
+.customers-table td:nth-child(6) {
+    width: 20%; /* Address */
+}
+
+.customers-table th:nth-child(7),
+.customers-table td:nth-child(7) {
+    width: 10%; /* Customer Type */
+}
+
+.customers-table th:nth-child(8),
+.customers-table td:nth-child(8) {
+    width: 8%; /* Preferred Customer */
+}
+
+.customers-table th:nth-child(9),
+.customers-table td:nth-child(9) {
+    width: 10%; /* City */
+}
+
+.customers-table th:nth-child(10),
+.customers-table td:nth-child(10) {
+    width: 5%; /* State */
+}
+
+.customers-table th:nth-child(11),
+.customers-table td:nth-child(11) {
+    width: 8%; /* ZIP Code */
+}
+
+/* Table Header Styling */
+.customers-table th {
+    background-color: #ff6f61;
+    color: #fff;
+    font-weight: bold;
+}
+
+.customers-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.customers-table tr:hover {
+    background-color: #f1f1f1;
+}
+h1 {
+    margin: 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Active Navbar Item */
+.admin-navbar .active a {
+    background-color: #353535;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 1.1em;
+    text-align: center; /* Center align filter section */
+}
+
+.filter-section label {
+    margin-bottom: 8px;
+}
+
+.filter-section select,
+.filter-section input,
+.filter-section button {
+    padding: 8px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    width: 200px; /* Adjust width as needed */
+}
+
+.filter-section button {
+    width: auto; /* Allow button to adjust to text width */
+    cursor: pointer;
+}
+
+.back-button button {
+    background-color: white;
+    color: #000000;
+    
+    outline: none;
+}
+
+.button-container, .back-button {
+    display: flex;
+    justify-content: center;
+}
+
+button[type="submit"], .back-button button {
+   
+    margin: 10px;
+}

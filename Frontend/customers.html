@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/customers.css">
+    <script>
+         function redirectToCustomerDetails(customerId) {
+            window.location.href = `customer_details.html?customerId=${customerId}`;
+        }
+
+        function filterByState() {
+            const selectedState = document.getElementById("stateFilter").value;
+            const rows = document.querySelectorAll(".customers-table tbody tr");
+
+            rows.forEach(row => {
+                const state = row.cells[9].textContent;
+                row.style.display = (selectedState === "All" || state === selectedState) ? "" : "none";
+            });
+        }
+
+        function searchByName() {
+    const input = document.getElementById("customerSearch").value.trim().toLowerCase();
+    const [firstName, lastName] = input.split(" ");
+    const rows = document.querySelectorAll(".customers-table tbody tr");
+
+    let visibleCount = 0;
+
+    rows.forEach(row => {
+        const rowFirstName = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+        const rowLastName = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
+
+        // If there's both a first and last name in the input, check both
+        if (firstName && lastName) {
+            if (rowFirstName.includes(firstName) && rowLastName.includes(lastName)) {
+                row.style.display = "";
+                visibleCount++;
+            } else {
+                row.style.display = "none";
+            }
+        } 
+        // If only first name is entered, check against both columns
+        else if (firstName) {
+            if (rowFirstName.includes(firstName) || rowLastName.includes(firstName)) {
+                row.style.display = "";
+                visibleCount++;
+            } else {
+                row.style.display = "none";
+            }
+        } 
+        // If no input, show all rows
+        else {
+            row.style.display = "";
+            visibleCount++;
+        }
+    });
+
+    // Show alert if no rows are visible
+    if (visibleCount === 0) {
+        window.location.reload();
+        alert("Customer does not exist");
+        
+    }
+}
+
+
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li class = "active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="form.html">Custom Order</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="center-text">Customers</h1>
+    <div class="filter-section">
+        <label for="stateFilter">Filter by state</label>
+        <select id="stateFilter" onchange="filterByState()">
+            <option value="All">All</option>
+            <option value="IL">Illinois</option>
+            <option value="OH">Ohio</option>
+            <option value="TX">Texas</option>
+            <!-- Add more state options as needed -->
+        </select>
+    
+        <label for="customerSearch">Search by customer name</label>
+        <input type="text" id="customerSearch" placeholder="Enter customer name">
+        <button onclick="searchByName()">Search</button>
+        <div class = "back-button" style="text-align: center; margin-top: 20px;">
+            <button onclick="window.location.href='customerMenu.html'">Back to Customer Menu</button>
+        </div>
+    </div>
+    
+    <!-- Customers Table Section -->
+    <section class="customers-section">
+        <table class="customers-table">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Customer Type</th>
+                    <th>Preferred Customer</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>ZIP Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onclick="redirectToCustomerDetails(2001)">
+                    <td>2001</td>
+                    <td>Marvin</td>
+                    <td>Beak</td>
+                    <td>marvin.beak@example.com</td>
+                    <td>(555) 123-4567</td>
+                    <td>123 Maple St</td>
+                    <td>Retail</td>
+                    <td>Yes</td>
+                    <td>Springfield</td>
+                    <td>IL</td>
+                    <td>62704</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2002)">
+                    <td>2002</td>
+                    <td>John</td>
+                    <td>Pork</td>
+                    <td>john.pork@example.com</td>
+                    <td>(555) 234-5678</td>
+                    <td>456 Pig Ave</td>
+                    <td>Corporate</td>
+                    <td>No</td>
+                    <td>Houston</td>
+                    <td>TX</td>
+                    <td>77204</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2003)">
+                    <td>2003</td>
+                    <td>Bret</td>
+                    <td>Detillier</td>
+                    <td>bret.det@example.com</td>
+                    <td>(555) 345-6789</td>
+                    <td>789 Pine Ln</td>
+                    <td>Retail</td>
+                    <td>No</td>
+                    <td>Fairfield</td>
+                    <td>OH</td>
+                    <td>45014</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2004)">
+                    <td>2004</td>
+                    <td>Michael</td>
+                    <td>Johnson</td>
+                    <td>michael.johnson@example.com</td>
+                    <td>(555) 456-7890</td>
+                    <td>101 Cedar Blvd</td>
+                    <td>Corporate</td>
+                    <td>No</td>
+                    <td>Columbus</td>
+                    <td>OH</td>
+                    <td>43215</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2005)">
+                    <td>2005</td>
+                    <td>Sarah</td>
+                    <td>Lee</td>
+                    <td>sarah.lee@example.com</td>
+                    <td>(555) 567-8901</td>
+                    <td>202 Birch Rd</td>
+                    <td>Retail</td>
+                    <td>No</td>
+                    <td>Dayton</td>
+                    <td>OH</td>
+                    <td>45402</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2006)">
+                    <td>2006</td>
+                    <td>David</td>
+                    <td>Wilson</td>
+                    <td>david.wilson@example.com</td>
+                    <td>(555) 678-9012</td>
+                    <td>303 Willow St</td>
+                    <td>Corporate</td>
+                    <td>Yes</td>
+                    <td>Cincinnati</td>
+                    <td>OH</td>
+                    <td>45202</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2007)">
+                    <td>2007</td>
+                    <td>Linda</td>
+                    <td>Martinez</td>
+                    <td>linda.martinez@example.com</td>
+                    <td>(555) 789-0123</td>
+                    <td>404 Oak St</td>
+                    <td>Retail</td>
+                    <td>No</td>
+                    <td>Akron</td>
+                    <td>OH</td>
+                    <td>44308</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2008)">
+                    <td>2008</td>
+                    <td>Christopher</td>
+                    <td>Evans</td>
+                    <td>christopher.evans@example.com</td>
+                    <td>(555) 890-1234</td>
+                    <td>505 Elm St</td>
+                    <td>Corporate</td>
+                    <td>Yes</td>
+                    <td>Youngstown</td>
+                    <td>OH</td>
+                    <td>44503</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2009)">
+                    <td>2009</td>
+                    <td>Patricia</td>
+                    <td>Harris</td>
+                    <td>patricia.harris@example.com</td>
+                    <td>(555) 901-2345</td>
+                    <td>606 Spruce St</td>
+                    <td>Retail</td>
+                    <td>No</td>
+                    <td>Toledo</td>
+                    <td>OH</td>
+                    <td>43604</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2010)">
+                    <td>2010</td>
+                    <td>Kevin</td>
+                    <td>Walker</td>
+                    <td>kevin.walker@example.com</td>
+                    <td>(555) 234-5678</td>
+                    <td>707 Aspen Ln</td>
+                    <td>Corporate</td>
+                    <td>Yes</td>
+                    <td>Dallas</td>
+                    <td>TX</td>
+                    <td>45801</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2011)">
+                    <td>2011</td>
+                    <td>Michelle</td>
+                    <td>Clark</td>
+                    <td>michelle.clark@example.com</td>
+                    <td>(555) 345-6789</td>
+                    <td>808 Cypress Rd</td>
+                    <td>Retail</td>
+                    <td>No</td>
+                    <td>Dallas</td>
+                    <td>TX</td>
+                    <td>43302</td>
+                </tr>
+                <tr onclick="redirectToCustomerDetails(2012)">
+                    <td>2012</td>
+                    <td>Barbara</td>
+                    <td>Lewis</td>
+                    <td>barbara.lewis@example.com</td>
+                    <td>(555) 456-7890</td>
+                    <td>909 Poplar St</td>
+                    <td>Corporate</td>
+                    <td>No</td>
+                    <td>San Antonio</td>
+                    <td>TX</td>
+                    <td>44256</td>
+                </tr>
+                <!-- Additional customer rows can be added here -->
+            </tbody>
+        </table>
+    </section>
+    <br><br><br><br><br>
+</body>
+</html>

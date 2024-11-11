@@ -18,7 +18,7 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 70px;
     margin: 0 auto;
     padding: 0;
 }
@@ -28,7 +28,7 @@
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: x-large;
+    font-size: large;
 }
 
 .admin-navbar a:hover {
@@ -37,26 +37,22 @@
 
 /* Dashboard Grid Styling */
 
-.logout-icon {
-    width: 20px;
-    height: auto;
-}
-
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    max-width: 500px;
-    margin: 0px auto;
-    padding: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for all screen sizes */
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px; /* Adjusted for larger screens */
+    margin: 0 auto;
+    background-color: #f4f6f8; /* Light background color for the grid */
 }
 
 /* Individual Pane Styling */
 .dashboard-pane {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 23px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -69,11 +65,17 @@
 .dashboard-pane h2 {
     color: #000000;
     margin-bottom: 10px;
+    font-size: 1.8rem; /* Increased heading size */
+    font-weight: bold; /* Makes the heading bold */
 }
 
+/* Uniform Image Styling */
 .dashboard-image {
-    max-width: 100%;
-    height: auto;
+    width: 100px; /* Set fixed width */
+    height: 100px; /* Set fixed height */
+    object-fit: contain; /* Ensures the image scales to fit within the fixed dimensions */
+    margin: 10px auto;
+    display: block;
     border-radius: 5px;
 }
 
@@ -84,3 +86,13 @@
     padding: 5px 10px;
     border-radius: 5px;
 }
+
+.back-button button {
+    background-color: white;
+    color: #000000;
+    box-shadow: 0 23px 12px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+
+

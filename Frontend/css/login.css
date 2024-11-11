@@ -53,7 +53,7 @@
     font-size: 1em;
 }
 
-button[type="submit"] {
+button[type="button"] {
     background-color: #ff6f61;
     color: #fff;
     padding: 10px;

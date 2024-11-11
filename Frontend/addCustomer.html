@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Customer - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/customers.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li class = "active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="form.html">Custom Order</a></li>
+            <li><a href="customers.html" class="active">Customers</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="center-text">Add Customer</h1>
+
+    <!-- Add Customer Form -->
+    <section class="form-section">
+        <form action="submit_customer.php" method="post">
+            <!-- Customer ID (readonly, auto-generated) -->
+            <label for="customer_id">Customer ID</label>
+            <input type="text" id="customer_id" name="customer_id" readonly placeholder="2013">
+
+            <!-- First and Last Name -->
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" required>
+
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <!-- Email and Phone Number -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone_number">Phone Number</label>
+            <input type="text" id="phone_number" name="phone_number" placeholder="(555) 123-4567" required>
+
+            <!-- Address -->
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <!-- Customer Type -->
+            <label for="customer_type">Customer Type</label>
+            <select id="customer_type" name="customer_type" required>
+                <option value="Retail">Retail</option>
+                <option value="Corporate">Corporate</option>
+            </select>
+
+            <!-- Preferred Customer Status -->
+            <label for="preferred_customer">Preferred Customer</label>
+            <select id="preferred_customer" name="preferred_customer" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- City, State, and ZIP Code -->
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State</label>
+            <select id="state" name="state" required>
+                <option value="TX">Texas</option>
+                <option value="CA">California</option>
+                <option value="IL">Illinois</option>
+                <option value="OH">Ohio</option>
+                <!-- Add more states as needed -->
+            </select>
+
+            <label for="zip_code">ZIP Code</label>
+            <input type="text" id="zip_code" name="zip_code" required>
+
+            <!-- Submit Button -->
+            <div class="button-container">
+                <button type="submit">Add Customer</button>
+            </div>
+            <div class = "back-button" style="text-align: center; margin-top: 20px;">
+                <button onclick="window.location.href='customerMenu.html'">Back to Customer Menu</button>
+            </div>
+        </form>
+    </section>
+
+    <br><br>
+</body>
+</html>

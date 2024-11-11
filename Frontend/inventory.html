@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="css/products.css">
+    <script>
+        function redirectToProductDetails(productId) {
+            window.location.href = `edit_product.html?productId=${productId}`;
+        }
+        function filterByStatus() {
+            const selectedStatus = document.getElementById("statusFilter").value;
+            const rows = document.querySelectorAll(".products-table tbody tr");
+
+            rows.forEach(row => {
+                const status = row.cells[2].textContent;
+                row.style.display = (selectedStatus === "All" || status === selectedStatus) ? "" : "none";
+            });
+        }
+        function searchByProductName() {
+            const input = document.getElementById("productSearch").value.trim().toLowerCase();
+            const rows = document.querySelectorAll(".products-table tbody tr");
+
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const productName = row.cells[1].textContent.toLowerCase();
+                if (productName.includes(input)) {
+                    row.style.display = "";
+                    visibleCount++;
+                } else {
+                    row.style.display = "none";
+                }
+            });
+
+            // Alert if no products are visible
+            if (visibleCount === 0) {
+                alert("Product does not exist");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="admin-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Section -->
+    <nav class="admin-navbar">
+        <ul>
+            <li class = "active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="orders.html">Custom Order</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="center-text">Product List</h1>
+    <div class="filter-section" style="text-align: center; margin-top: 20px;">
+        <label for="statusFilter">Filter by Status</label>
+        <select id="statusFilter" onchange="filterByStatus()">
+            <option value="All">All</option>
+            <option value="Available">Available</option>
+            <option value="Not Available">Not Available</option>
+        </select>
+    </div>
+    <h3 class="center-text">Search for Product by Name</h3>
+    <div class="search-section" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+        <input type="text" id="productSearch" placeholder="Enter product name" style="margin-bottom: 10px;">
+        <button onclick="searchByProductName()">Search</button>
+    </div>
+
+    
+
+    <div class="back-button" style="text-align: center; margin-top: 20px;">
+        <button type="button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+    </div>
+    <br><br>
+    <section class="products-section">
+        <table class="products-table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onclick="redirectToProductDetails(1)">
+                    <td>1</td>
+                    <td>Vanilla Cake</td>
+                    <td>Available</td>
+                    <td>$15.00</td>
+                    <td>Cakes</td>
+                </tr>
+                <tr onclick="redirectToProductDetails(2)">
+                    <td>2</td>
+                    <td>Strawberry Mousse</td>
+                    <td>Available</td>
+                    <td>$5.00</td>
+                    <td>Fillings</td>
+                </tr>
+                <tr onclick="redirectToProductDetails(3)">
+                    <td>3</td>
+                    <td>Buttercream Flowers</td>
+                    <td>Not Available</td>
+                    <td>$3.00</td>
+                    <td>Decorations</td>
+                </tr>
+                <tr onclick="redirectToProductDetails(4)">
+                    <td>4</td>
+                    <td>Almond Cake</td>
+                    <td>Available</td>
+                    <td>$18.00</td>
+                    <td>Cakes</td>
+                </tr>
+                <tr onclick="redirectToProductDetails(5)">
+                    <td>5</td>
+                    <td>Yellow Cake</td>
+                    <td>Available</td>
+                    <td>$15.00</td>
+                    <td>Cakes</td>
+                </tr>
+                <!-- Pastries -->
+                <tr onclick="redirectToProductDetails(6)">
+                    <td>6</td>
+                    <td>Croissant</td>
+                    <td>Available</td>
+                    <td>$2.50</td>
+                    <td>Pastries</td>
+                </tr>
+                <!-- Cup Cakes -->
+                <tr onclick="redirectToProductDetails(7)">
+                    <td>7</td>
+                    <td>Chocolate Cupcake</td>
+                    <td>Available</td>
+                    <td>$3.00</td>
+                    <td>Cup Cakes</td>
+                </tr>
+                <!-- Cookies -->
+                <tr onclick="redirectToProductDetails(8)">
+                    <td>8</td>
+                    <td>Chocolate Chip Cookies</td>
+                    <td>Available</td>
+                    <td>$1.50</td>
+                    <td>Cookies</td>
+                </tr>
+                <!-- Petit Fours -->
+                <tr onclick="redirectToProductDetails(9)">
+                    <td>9</td>
+                    <td>Petit Four - Almond</td>
+                    <td>Available</td>
+                    <td>$2.00</td>
+                    <td>Petit Fours</td>
+                </tr>
+                <!-- Pies -->
+                <tr onclick="redirectToProductDetails(10)">
+                    <td>10</td>
+                    <td>Apple Pie</td>
+                    <td>Available</td>
+                    <td>$12.00</td>
+                    <td>Pies</td>
+                </tr>
+                <!-- Breads -->
+                <tr onclick="redirectToProductDetails(11)">
+                    <td>11</td>
+                    <td>Baguette</td>
+                    <td>Available</td>
+                    <td>$3.00</td>
+                    <td>Breads</td>
+                </tr>
+                <!-- Seasonal Products -->
+                <tr onclick="redirectToProductDetails(12)">
+                    <td>12</td>
+                    <td>Pumpkin Pie (Seasonal)</td>
+                    <td>Available</td>
+                    <td>$14.00</td>
+                    <td>Seasonal Products</td>
+                </tr>
+                <!-- Additional Decorations -->
+                <tr onclick="redirectToProductDetails(13)">
+                    <td>13</td>
+                    <td>Silk Flowers - Rose</td>
+                    <td>Not Available</td>
+                    <td>$4.00</td>
+                    <td>Decorations</td>
+                </tr>
+                <tr onclick="redirectToProductDetails(14)">
+                    <td>14</td>
+                    <td>Plastic Dinosaurs</td>
+                    <td>Available</td>
+                    <td>$2.50</td>
+                    <td>Decorations</td>
+                </tr>
+                <!-- Fillings -->
+                <tr onclick="redirectToProductDetails(15)">
+                    <td>15</td>
+                    <td>Chocolate Buttercream</td>
+                    <td>Available</td>
+                    <td>$5.00</td>
+                    <td>Fillings</td>
+                </tr>
+                <!-- Icing -->
+                <tr onclick="redirectToProductDetails(16)">
+                    <td>16</td>
+                    <td>White Buttercream</td>
+                    <td>Available</td>
+                    <td>$5.00</td>
+                    <td>Icing</td>
+                </tr>
+                <tr onclick="redirectToProductDetails(17)">
+                    <td>17</td>
+                    <td>Almond Buttercream</td>
+                    <td>Not Available</td>
+                    <td>$5.50</td>
+                    <td>Icing</td>
+                </tr>
+                <!-- Repeat for each product -->
+            </tbody>
+        </table>
+    </section>
+    <br><br><br>
+</body>
+</html>
